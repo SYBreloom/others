@@ -1,0 +1,26 @@
+这个问题我再也不想遇到了，evernote为它建一个笔记，感觉不值得。不记录的话又觉得有点亏...
+
+问题：Ubuntu14.04桌面没有侧边栏和状态栏
+原因：Ubuntu Unity plugin被关闭
+
+0. Reinstall Unity
+sudo apt-get update
+sudo apt-get install --reinstall ubuntu-desktop
+sudo apt-get install unity
+并没有用
+
+1. Ctrl+Alt+F1 -> login to cmd or cd /usr/share/applications/ use XTerm
+
+2. download compizconfig-settings-manager
+sudo apt-get install compizconfig-settings-manager
+
+3.  run compizconfig-settings-manager
+DISPLAY=:0 ccsm
+Ctrl+Alt+F1 -> graphic
+click to enable Ubuntu unity plugin
+
+4. Ctrl+Alt+F1
+dconf reset -f /org/compiz/
+unity --reset-icons &disown
+
+http://sourcedigit.com/13322-fix-unity-freezes-login-ubuntu-14-10-utopic-unicorn/
